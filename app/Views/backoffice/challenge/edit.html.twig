@@ -1,0 +1,42 @@
+{% extends "backoffice/template.html.twig" %}
+{% block title %}BackOffice | les défis{% endblock %}
+{% block content %}
+
+<h1>Ajouter un défi</h1>
+<p>Indiquer les données pour ce défi.</p>
+<form action="{{ url( '/backoffice/challenges/edit/' ~ challenge.id )}}" method="post">
+
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Code :</label>
+    <div class="col-sm-2">
+      <input name="code" type="text" class="form-control" value="{{ challenge.code }}">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Description :</label>
+    <div class="col-sm-8">
+      <textarea name="description" rows="3" class="form-control">{{ challenge.description }}</textarea>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-3 col-form-label">Collection associée :</label>
+    <div class="col-sm-4">
+      <select name="collection_id" class="form-control">
+        {% for collection in collections %}
+          <option {% if collection.id == challenge.collection_id %}selected{% endif %} value="{{ collection.id }}">{{ collection.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="offset-3">
+      <button class="btn btn-secondary">Mettre à jour le  défi</button>
+      <a href="{{ url( '/backoffice/challenges' )}}" class="btn btn-link">annuler</a>
+    </div>
+  </div>
+
+</form>
+{% endblock %}

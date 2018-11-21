@@ -1,0 +1,32 @@
+{% extends "backoffice/template.html.twig" %}
+{% block title %}BackOffice | les défis{% endblock %}
+{% block content %}
+
+<h1>Les défis</h1>
+<p>Voici la liste des <b>défis</b> déjà existants dans l'application.</p>
+<a href="{{ url( '/backoffice/challenges/add' )}}" class="btn btn-primary">Ajouter un autre défi</a>
+<table class="table mt-2">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Description</th>
+      <th scope="col">Code</th>
+      <th scope="col">Création</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for challenge in challenges %}
+    <tr>
+      <th scope="row">{{ challenge.id }}</th>
+      <td>{{ challenge.description }}</td>
+      <td>{{ challenge.code }}</td>
+      <td>{{ challenge.created_at }}</td>
+      <td>
+        <a href="{{ url( '/backoffice/challenges/edit/' ~ challenge.id )}}">éditer</a>
+        <a href="{{ url( '/backoffice/challenges/delete/' ~ challenge.id )}}">supprimer</a>
+      </td>
+    </tr>
+{% endfor %}
+
+{% endblock %}

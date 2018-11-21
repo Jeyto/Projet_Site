@@ -1,0 +1,24 @@
+{% extends "backoffice/template.html.twig" %}
+{% block title %}BackOffice | les défis{% endblock %}
+{% block content %}
+
+<h1>Les défis</h1>
+
+<p>Selectionner les défis que vous allez présenter aux enfants de votre classe.</p>
+<form action="{{ url( '/backoffice/challenges/select/' ~ session.classroom.code )}}" method="post" >
+  <input type="hidden" name="classroom_id" value="{{ session.classroom.id }}">
+{% for challenge in challenges %}
+  <div class="form-check ml-5">
+    <input class="form-check-input" type="checkbox" value="{{ challenge.id }}" name="defi[]" {% if challenge.checked %}checked{% endif %} >
+
+    <label class="form-check-label">
+      <b>{{ challenge.code }}</b> :: 
+      {{ challenge.description }}
+    </label>
+  </div>
+{% endfor %}
+</ul>
+<button class="btn btn-secondary">Enregistrer</button>
+      <a href="{{ url( '/backoffice' )}}" class="btn btn-link">annuler</a>
+</form>
+{% endblock %}

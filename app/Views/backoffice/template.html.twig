@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+
+  <title>Galerie - {% block title %}{% endblock %}</title>
+  <!-- Favicon-->
+  <link rel="shortcut icon" href="{{ url( '/assets/img/favicon.ico' ) }}">
+
+  <!-- @@@ CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+  <link href="{{ url( '/assets/css/app-bo.css' ) }}" rel="stylesheet">
+  {% block specific_css %}{% endblock %}
+</head>
+
+<body>
+
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+    <div class="sidebar-header text-center">
+        <h3>AlphaCorps <span class="text-black-50">BackOffice</span></h3>
+    </div>
+    <ul class="list-unstyled components">
+      <p>Rôle: ????</p>
+      <li>
+        <a href="{{ url( '/backoffice' ) }}">
+          <i class="fas fa-home"></i>
+          Accueil
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ url( '/backoffice/admins' ) }}">
+          <i class="fas fa-users-cog"></i>
+          Les admin
+        </a>
+      </li>
+
+      <li>
+        <a href="{{ url( '/backoffice/challenges' ) }}">
+          <i class="fas fa-certificate"></i>
+          Les défis
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+
+        <button type="button" id="sidebarCollapse" class="btn btn-info">
+            <i class="fas fa-bars"></i>
+        </button>
+        <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-align-justify"></i>
+        </button>
+
+
+      </div>
+    </nav>
+
+    <div class="content-wrapper">
+      {% block content %}{% endblock %}
+    </div>
+
+  </div>
+    
+  <!-- Dark Overlay element -->
+  <div class="overlay"></div>
+
+</div>
+
+  <!-- @@@ JS @@@ -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script 
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script 
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+  <!-- jQuery Custom Scroller CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- Main File-->
+  <script src="{{ url( '/assets/js/app-bo.js' ) }}"></script>
+  {% block specific_js %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{% extends "backoffice/template.html.twig" %}
+{% block title %}BackOffice | les administrateurs{% endblock %}
+{% block content %}
+
+<h1>Les administrateurs</h1>
+<p>Voici la liste des administrateurs de l'application.</p>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Mot de passe (crypté)</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for admin in admins %} 
+    <tr>
+      <th scope="row">{{ admin.id  }}</th>
+      <td>{{ admin.name  }}</td>
+      <td>{{ admin.password }}</td>
+    </tr>
+  {% endfor %}
+
+{% endblock %}

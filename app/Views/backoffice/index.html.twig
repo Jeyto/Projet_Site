@@ -1,0 +1,25 @@
+{% extends "backoffice/template.html.twig" %}
+{% block title %}BackOffice{% endblock %}
+{% block content %}
+<div class="container">
+{% if session.role == 'ens' %}
+  <h2>Information sur votre classe</h2>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <small class="text-black-50 float-right">le compte a été crée le {{ classroom.createdAt }}</small>
+      <p>Votre compte se nomme : <span class="font-weight-bold">{{ classroom.teachername }}</span></p>
+    </li>
+    <li class="list-group-item">
+      <p>Votre code de classe est  : <span class="font-weight-bold">{{ classroom.code }}</span> </p>
+    </li>
+    <li class="list-group-item">
+      <p>
+        Voici le <a href="{{ url( '/classe/' ~  session.classroom.code ~ '/defi' ) }}" target="blank">lien</a> pour travailler avec les enfants dans la classe.
+      </p>
+    </li>
+
+  </ul>
+{% endif %}
+
+</div>
+{% endblock %}
