@@ -64,10 +64,6 @@ class HomeController extends Controller {
     }
   }
 
-	
-	
-	public function test(){
-		r( App\Models\Classroom::getInstance()->get('a124a') );
-		
-	}
+
+
 }

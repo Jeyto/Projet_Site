@@ -46,3 +46,17 @@ class BoController extends Controller {
 		redirect('/login');
 	}
 }
+
+/**
+* Login dans l'application BackOffice.
+*/
+public function login()
+{
+	if (isLogin()) {
+		redirect('/backoffice');
+} else {
+			$this->display(
+						'backoffice/login.html.twig'
+			);
+	}
+}

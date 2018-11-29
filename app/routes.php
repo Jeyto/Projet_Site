@@ -25,12 +25,8 @@ $route->addRoute('GET', '/backoffice/challenges/edit/{id:[0-9]+}', 'ChallengeCon
 $route->addRoute('POST', '/backoffice/challenges/edit/{id:[0-9]+}', 'ChallengeController@update');
 $route->addRoute('GET', '/backoffice/challenges/delete/{id:[0-9]+}', 'ChallengeController@delete');
 
-$route->addRoute('GET', '/backoffice/Classroom', '');
-$route->addRoute('GET', '/backoffice/Classroom/get', '');
-$route->addRoute('GET', '/backoffice/Classroom/getIdFromCode/{id:[0-9]+}', '');
-$route->addRoute('POST', '/backoffice/Classroom/getIdFromCode/{id:[0-9]+}', '');
-$route->addRoute('GET', '/backoffice/Classroom/exists', '');
-$route->addRoute('GET', '/backoffice/Classroom/addChallenge', '');
-$route->addRoute('GET', '/backoffice/Classroom/deleteChallenges/{id:[0-9]+}', '');
-$route->addRoute('POST', '/backoffice/Classroom/deleteChallenges/{id:[0-9]+}', '');
-$route->addRoute('GET', '/backoffice/Classroom/getChildrens', '');
+
+
+$route->addRoute('GET', '/login', 'BoController@login');
+$route->addRoute('POST', '/login', 'BoController@loginCheck');
+$route->addRoute('GET', '/delog', 'BoController@delog');
